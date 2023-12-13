@@ -24,8 +24,6 @@ public class Tile {
     }
 
     public int clicked() {
-        System.out.println(Boolean.toString(flagged));
-        System.out.println(Boolean.toString(revealed));
         if (!flagged && !revealed) {
             revealed = true;
             if (isMine) {

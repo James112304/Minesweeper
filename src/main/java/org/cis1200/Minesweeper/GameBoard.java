@@ -63,14 +63,12 @@ public class GameBoard extends JPanel {
         addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                System.out.println(e.getButton());
                 if (e.getButton() == MouseEvent.BUTTON1) {
                     ms.reveal(e.getY() / 30, e.getX() / 30);
                     updateStatus();
                 }
                 if (e.getButton() == MouseEvent.BUTTON2
                         || e.getButton() == MouseEvent.BUTTON3 && flagsLeft > 0) {
-                    System.out.println("fired");
                     if (ms.isFlagged(e.getY() / 30, e.getX() / 30)) {
                         flagsLeft += 1;
                     } else {
@@ -107,7 +105,6 @@ public class GameBoard extends JPanel {
             }
             ms = new Minesweeper(s.toString());
             flagsLeft = flagsLeft - ms.getNumFlags();
-            System.out.println(ms.getNumFlags());
             updateStatus();
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
